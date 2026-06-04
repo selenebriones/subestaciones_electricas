@@ -4,52 +4,57 @@ Este proyecto es una Landing Page moderna, de alto impacto visual y orientada a 
 
 ## Tecnologías Utilizadas
 
-El proyecto está construido priorizando el rendimiento, la accesibilidad y un diseño moderno (Bento Grid, Glassmorphism, animaciones suaves) utilizando tecnologías web estándar y herramientas de construcción modernas:
+El proyecto fue refactorizado y está construido bajo el ecosistema de **Astro**, priorizando el rendimiento, la accesibilidad, la arquitectura basada en componentes y un diseño moderno (Bento Grid, Glassmorphism, animaciones suaves):
 
-- **HTML5:** Estructura semántica.
-- **CSS3 (Vanilla):** Estilos personalizados, variables CSS, Flexbox, CSS Grid (para el layout Bento Box), y animaciones (keyframes para la cinta de clientes). No se utilizan frameworks CSS pesados.
-- **JavaScript (Vanilla):** Lógica de animaciones al hacer scroll (Intersection Observer), validación de formularios y comportamiento de la barra de navegación.
-- **Vite:** Herramienta de compilación (build tool) y servidor de desarrollo local. Proporciona recarga en caliente (HMR) ultrarrápida y compilación optimizada para producción.
+- **Astro:** Framework web diseñado para velocidad, permitiendo la generación de sitios estáticos (SSG) de alta eficiencia con la filosofía de "Zero JS por defecto".
+- **Componentes Astro (`.astro`):** Arquitectura modular (Header, Hero, Footer, etc.) que facilita el escalamiento y mantenimiento.
+- **HTML5 & CSS3 (Vanilla):** Estructura semántica, variables CSS, Flexbox, CSS Grid (para el layout Bento Box), y animaciones (keyframes para la cinta de clientes). No se utilizan frameworks CSS pesados.
+- **JavaScript (Vanilla):** Lógica de animaciones al hacer scroll (Intersection Observer) y comportamiento de la barra de navegación, aislada de manera eficiente dentro del layout base.
 
 ## Estructura del Proyecto
 
+La nueva estructura de Astro distribuye lógicamente las responsabilidades:
+
 ```text
 /
-├── public/                 # Archivos estáticos (imágenes, logos, favicons) que se copian directamente a /dist.
-│   ├── images/             # Imágenes generadas de alta calidad (4k) para fondos y beneficios.
+├── public/                 # Archivos estáticos (imágenes, logos, favicons) que Astro sirve tal cual a /dist.
+│   ├── images/             # Imágenes optimizadas para fondos y beneficios.
 │   ├── favicon.svg         # Ícono del sitio.
 │   └── ...                 # Logos de clientes (Benavides, Oxxo, etc.)
-├── index.html              # Archivo HTML principal. Contiene toda la estructura de la landing page.
-├── style.css               # Hoja de estilos principal. Incluye variables de tema oscuro y cyan corporativo.
-├── main.js                 # Lógica interactiva (scroll, animaciones, formulario).
+├── src/                    # Código fuente del proyecto Astro.
+│   ├── components/         # Módulos reutilizables de UI (Hero.astro, Benefits.astro, Footer.astro, etc.).
+│   ├── layouts/            # Plantillas base (Layout.astro envuelve todas las páginas).
+│   ├── pages/              # Rutas de la web (index.astro representa la página principal /).
+│   ├── scripts/            # Lógica de JS global (main.js para el observer de scroll).
+│   └── styles/             # Hojas de estilo globales (global.css).
 ├── package.json            # Dependencias del proyecto y scripts de Node.js.
-├── vite.config.js          # Configuración del servidor Vite (si aplica).
+├── astro.config.mjs        # Configuración de Astro (si aplica).
 └── README.md               # Este archivo de documentación.
 ```
 
 ## Guía de Instalación y Desarrollo Local
 
-Para trabajar en este proyecto de manera local, asegúrate de tener instalado [Node.js](https://nodejs.org/) (versión 16+ recomendada).
+Para trabajar en este proyecto de manera local, asegúrate de tener instalado [Node.js](https://nodejs.org/) (versión 18+ recomendada).
 
 1. **Instalar dependencias:**
-   Ejecuta el siguiente comando en la raíz del proyecto para descargar las herramientas necesarias:
+   Ejecuta el siguiente comando en la raíz del proyecto:
    ```bash
    npm install
    ```
 
 2. **Iniciar el servidor de desarrollo:**
-   Para visualizar la página en tu navegador con recarga automática cada vez que guardes un cambio en el código:
+   Para previsualizar la página en tu navegador con Hot Module Replacement (HMR):
    ```bash
    npm run dev
    ```
-   Esto levantará un servidor local (usualmente en `http://localhost:5173`).
+   Esto levantará un servidor local rápido provisto por Astro.
 
 3. **Construir para Producción:**
-   Una vez que hayas terminado de realizar cambios y quieras desplegar el sitio, debes construir la versión optimizada:
+   Para compilar el sitio final ultrarrápido (Archivos estáticos HTML/CSS puros):
    ```bash
    npm run build
    ```
-   Este comando generará una carpeta `dist/` que contendrá el código HTML, CSS y JS minificado y listo para ser alojado en cualquier servidor web estático (Vercel, Netlify, AWS S3, Hostinger, etc.).
+   Se generará la carpeta `dist/` lista para ser desplegada en Vercel, Netlify, AWS S3, Hostinger, etc.
 
 4. **Previsualizar la versión de producción (Opcional):**
    ```bash
@@ -58,13 +63,14 @@ Para trabajar en este proyecto de manera local, asegúrate de tener instalado [N
 
 ## Características Clave del Código
 
-- **Bento Grid:** La sección de "Beneficios" (Ventajas) está construida utilizando un layout asimétrico de CSS Grid (`.bento-grid`), lo que le da un aspecto muy premium y moderno.
-- **Efectos de Scroll:** Los elementos aparecen dinámicamente a medida que el usuario hace scroll hacia abajo. Esto se controla en `main.js` usando el API de `IntersectionObserver` y las clases `.scroll-trigger` de CSS.
-- **Cinta de Logos Infinita:** La franja de marcas (`.marquee`) está implementada con CSS puro (`@keyframes marquee`) y un truco de duplicación de contenido en HTML para asegurar un ciclo infinito (seamless loop) incluso en monitores ultra-anchos.
-- **Tema Oscuro y Acentos:** La paleta de colores se gestiona mediante variables CSS nativas (`:root`), predominando el azul oscuro naval con acentos en cian (`#00C2E8`).
+- **Modularización Astro:** El código HTML gigante fue separado en múltiples componentes más pequeños (`src/components/`), facilitando que el equipo de desarrollo ubique y actualice fragmentos de código sin riesgo.
+- **Formulario Actualizado:** El formulario de contacto ubicado en `Footer.astro` ha sido optimizado con un área de comentarios en vez de selectores limitantes.
+- **Bento Grid:** La sección de "Beneficios" (Ventajas) está construida utilizando un layout asimétrico de CSS Grid (`.bento-grid`), dándole un aspecto muy premium.
+- **Cinta de Logos Infinita:** Franja de marcas (`.marquee`) con CSS puro (`@keyframes marquee`) y contenido cíclico infinito.
 
 ## Mantenimiento Futuro
 
-- **Cambio de Imágenes:** Para cambiar una imagen, simplemente reemplaza el archivo en la carpeta `public/` o actualiza la ruta `src=""` dentro de `index.html`. 
-- **Información de Contacto:** Todos los datos (teléfono, dirección, email, enlaces) se encuentran en texto plano dentro del archivo `index.html` (principalmente en el `<header>` y en el `<footer>`), por lo que son fáciles de actualizar.
-- **Nuevos Estilos:** Todo nuevo componente debe ser estilizado en `style.css` respetando las variables de color globales para mantener la coherencia visual.
+- **Edición de Contenido:** Para cambiar textos o secciones, navega directamente al componente correspondiente en `src/components/`. 
+- **Información de Contacto:** Todos los datos (teléfono, dirección, email, formulario) se encuentran en el archivo `src/components/Footer.astro`.
+- **Nuevos Estilos:** Puedes estilizar cada componente directamente en su bloque `<style>` dentro del archivo `.astro`, o a nivel global en `src/styles/global.css`.
+- **Scripts:** Si agregas interactividad a un componente de Astro, hazlo dentro de un tag `<script>` al final del archivo `.astro`. Astro lo procesará y optimizará automáticamente.

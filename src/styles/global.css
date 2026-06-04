@@ -797,7 +797,8 @@ a {
 }
 
 .input-group input,
-.input-group select {
+.input-group select,
+.input-group textarea {
   width: 100%;
   background: transparent;
   border: none;
@@ -810,8 +811,14 @@ a {
   outline: none;
 }
 
+.input-group textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
 .input-group input:focus,
-.input-group select:focus {
+.input-group select:focus,
+.input-group textarea:focus {
   border-bottom-color: var(--color-brand-accent);
 }
 
@@ -827,6 +834,8 @@ a {
 
 .input-group input:focus ~ label,
 .input-group input:not(:placeholder-shown) ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label,
 .input-group select:focus ~ label.select-label,
 .input-group select:valid ~ label.select-label {
   top: -12px;
