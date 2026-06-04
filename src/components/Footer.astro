@@ -1,0 +1,69 @@
+---
+---
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    <div class="footer-form scroll-trigger">
+      <h2>¿Listo para arrancar tu proyecto eléctrico?</h2>
+      <form id="contact-form">
+        <div class="input-group">
+          <input type="text" id="name" required placeholder=" ">
+          <label for="name">Nombre Completo</label>
+        </div>
+        <div class="input-group">
+          <input type="text" id="company" required placeholder=" ">
+          <label for="company">Empresa</label>
+        </div>
+        <div class="input-group">
+          <input type="tel" id="phone" required placeholder=" ">
+          <label for="phone">Teléfono</label>
+        </div>
+        <div class="input-group">
+          <input type="email" id="email" required placeholder=" ">
+          <label for="email">Correo Electrónico</label>
+        </div>
+        <div class="input-group">
+          <select id="service-type" required>
+            <option value="" disabled selected></option>
+            <option value="new">Subestación Nueva</option>
+            <option value="maintenance">Mantenimiento</option>
+            <option value="procedure">Trámite</option>
+          </select>
+          <label for="service-type" class="select-label">Tipo de Proyecto</label>
+        </div>
+        <button type="submit" class="btn btn-submit" id="submit-btn">
+          <span class="btn-text">Enviar Requerimiento Técnico</span>
+          <span class="btn-loader"></span>
+        </button>
+      </form>
+    </div>
+    <div class="footer-info scroll-trigger delay-1">
+      <div class="info-block">
+        <h3>Dirección</h3>
+        <p>Celedonio Junco de la Vega 4643,<br>Valle Verde 3er Sector<br>Monterrey, Nuevo León, México 64339</p>
+      </div>
+      <div class="info-block">
+        <h3>Teléfono de ventas / atención 24 hrs</h3>
+        <p style="font-size: 1.5rem; font-weight: 700; color: var(--color-brand-accent);">Cel: 81-8396-8300</p>
+        <h3 style="margin-top: 16px;">Email</h3>
+        <p>ventas@subestacioneselectricas.com.mx</p>
+      </div>
+      <div class="map-placeholder" style="min-height: 250px;">
+        <iframe 
+          src="https://www.google.com/maps?q=Celedonio+Junco+de+la+Vega+4643,+Valle+Verde+3er+Sector,+Monterrey,+Nuevo+León,+México+64339&output=embed" 
+          width="100%" 
+          height="100%" 
+          style="border:0; position: absolute; top: 0; left: 0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div class="footer-links">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <a href="#">&copy; 2026 Grupo CGE. Todos los derechos reservados.</a>
+          <img src="/images/subestaciones-cge.png" alt="Subestaciones CGE" style="height: 40px; width: auto;" />
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
