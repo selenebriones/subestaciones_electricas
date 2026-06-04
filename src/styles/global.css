@@ -531,6 +531,10 @@ a {
   color: var(--color-text-light);
 }
 
+.advantages .container {
+  max-width: 1400px;
+}
+
 /* Bento Box Grid */
 .bento-grid {
   display: grid;
@@ -554,11 +558,11 @@ a {
 
 .main-card {
   grid-column: 1 / -1;
-  min-height: 400px;
+  min-height: 500px;
 }
 
 .side-card {
-  min-height: 350px;
+  min-height: 450px;
 }
 
 .bento-card:hover {
