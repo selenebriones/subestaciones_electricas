@@ -70,6 +70,7 @@ Para trabajar en este proyecto de manera local, asegúrate de tener instalado [N
 
 ## Mantenimiento Futuro
 
+- **Imágenes Personalizadas y Optimizadas:** La imagen principal de portada (`public/images/hero_bg.jpg`) fue generada y editada mediante Inteligencia Artificial a una vista panorámica (16:9), limpiada de textos y severamente comprimida en JPEG (peso ~176KB) para mantener una excelente velocidad de carga.
 - **Edición de Contenido:** Para cambiar textos o secciones, navega directamente al componente correspondiente en `src/components/`. 
 - **Información de Contacto:** Todos los datos (teléfono, dirección, email, formulario) se encuentran en el archivo `src/components/Footer.astro`.
 - **Nuevos Estilos:** Puedes estilizar cada componente directamente en su bloque `<style>` dentro del archivo `.astro`, o a nivel global en `src/styles/global.css`.
