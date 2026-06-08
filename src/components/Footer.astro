@@ -63,6 +63,14 @@
 <script>
   const form = document.getElementById('contact-form');
   const origenInput = document.getElementById('origen');
+  const phoneInput = document.getElementById('phone');
+
+  if (phoneInput) {
+    // Evita que se puedan escribir letras o símbolos, forzando solo números en tiempo real
+    phoneInput.addEventListener('input', function() {
+      this.value = this.value.replace(/[^0-9]/g, '');
+    });
+  }
 
   if (form && origenInput) {
     // Llenar dinámicamente el origen
@@ -83,9 +91,9 @@
         return;
       }
 
-      // Validación de teléfono (solo números, mínimo 10 dígitos)
-      const phoneRegex = /^[0-9\-\+\s]{10,}$/;
-      if (!phoneRegex.test(phone.replace(/\D/g, ''))) {
+      // Validación de teléfono (estricta: solo números, mínimo 10 dígitos)
+      const phoneRegex = /^[0-9]{10,}$/;
+      if (!phoneRegex.test(phone)) {
         alert('Por favor, ingresa un número de teléfono válido (solo números, mínimo 10 dígitos).');
         return;
       }
