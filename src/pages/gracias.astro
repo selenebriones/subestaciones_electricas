@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Gracias por contactarnos | Grupo CGE">
+  <Header />
+  
+  <main class="gracias-page">
+    <div class="container text-center">
+      <div class="success-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      <h1>¡Gracias por contactarnos!</h1>
+      <p>Hemos recibido tu requerimiento de manera exitosa. Nuestro equipo de ingeniería analizará la información y se pondrá en contacto contigo a la brevedad posible.</p>
+      <a href="/" class="btn" style="margin-top: 32px; display: inline-flex;">Volver al Inicio</a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .gracias-page {
+    padding: 180px 0 100px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-light);
+  }
+
+  .text-center {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .success-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background-color: rgba(0, 194, 232, 0.1);
+    color: var(--color-brand-accent);
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    color: var(--color-brand-primary);
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+</style>
