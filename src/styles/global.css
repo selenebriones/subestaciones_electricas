@@ -815,6 +815,17 @@ a {
   outline: none;
 }
 
+/* Fix browser autofill background color */
+.input-group input:-webkit-autofill,
+.input-group input:-webkit-autofill:hover,
+.input-group input:-webkit-autofill:focus,
+.input-group textarea:-webkit-autofill,
+.input-group textarea:-webkit-autofill:hover,
+.input-group textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-text-light) !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
 .input-group textarea {
   resize: vertical;
   font-family: inherit;
