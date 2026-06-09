@@ -27,5 +27,14 @@ const { title } = Astro.props;
       // Global Scripts that need to run across the layout
       import '../scripts/main.js';
     </script>
+    
+    <!-- Chatbot Script -->
+    <script src="https://conversia.com.mx/assets/js/chatbot.js" id="chatbot-js" is:inline></script>
+    <script is:inline>
+        CHATKODEX.init({
+            host: window.location.host,
+            key: "blJYqbDCaEAfr"
+        });
+    </script>
   </body>
 </html>
