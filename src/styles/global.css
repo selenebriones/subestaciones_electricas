@@ -888,6 +888,7 @@ a {
   border-radius: 16px;
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
 }
 
 .info-block {
