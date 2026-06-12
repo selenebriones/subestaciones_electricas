@@ -72,6 +72,14 @@
       const comments = document.getElementById('comments').value;
       const origen = origenInput.value;
 
+      const urlParams = new URLSearchParams(window.location.search);
+      const utm_id = urlParams.get('utm_id') || '';
+      const utm_campaign = urlParams.get('utm_campaign') || '';
+      const utm_source = urlParams.get('utm_source') || '';
+      const utm_medium = urlParams.get('utm_medium') || '';
+      const utm_content = urlParams.get('utm_content') || '';
+      const utm_term = urlParams.get('utm_term') || '';
+
       // Validación simple adicional (los atributos required ya hacen gran parte del trabajo)
       if (!name || !phone || !email || !comments) {
         alert('Por favor, completa todos los campos requeridos.');
@@ -111,7 +119,13 @@
             phone,
             email,
             comments,
-            origen
+            origen,
+            utm_id,
+            utm_campaign,
+            utm_source,
+            utm_medium,
+            utm_content,
+            utm_term
           })
         });
 
